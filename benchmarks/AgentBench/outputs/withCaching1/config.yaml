@@ -1,0 +1,117 @@
+assignments:
+- agent: deepseek-ai/DeepSeek-R1-Distill-Qwen-14B
+  task: m2w-std
+- agent: deepseek-ai/DeepSeek-R1-Distill-Qwen-14B
+  task: webshop-std
+- agent: deepseek-ai/DeepSeek-R1-Distill-Qwen-14B
+  task: dbbench-std
+- agent: deepseek-ai/DeepSeek-R1-Distill-Qwen-14B
+  task: os-std
+concurrency:
+  agent:
+    deepseek-ai/DeepSeek-R1-Distill-Qwen-14B: 5
+  task:
+    dbbench-std: 5
+    m2w-std: 5
+    os-std: 5
+    webshop-std: 5
+definition:
+  agent:
+    deepseek-ai/DeepSeek-R1-Distill-Qwen-14B:
+      module: src.client.agents.VLLMAgent
+      parameters:
+        body:
+          max_tokens: 512
+          name: deepseek-ai/DeepSeek-R1-Distill-Qwen-14B
+          temperature: 0.75
+        headers:
+          Authorization: EMPTY
+          Content-Type: application/json
+        model: deepseek-ai/DeepSeek-R1-Distill-Qwen-14B
+        name: deepseek-ai/DeepSeek-R1-Distill-Qwen-14B
+        prompter:
+          args:
+            agent_role: assistant
+          name: role_content_dict
+        return_format: '{response[choices][0][message][content]}'
+        url: http://localhost:9876/v1/chat/completions
+  task:
+    dbbench-std:
+      module: src.client.TaskClient
+      parameters:
+        concurrency: 1
+        controller_address: http://localhost:5000/api
+        data_file: data/dbbench/standard.jsonl
+        max_round: 15
+        name: dbbench-std
+    m2w-std:
+      module: src.client.TaskClient
+      parameters:
+        concurrency: 10
+        controller_address: http://localhost:5000/api
+        data:
+          cache_path: ./data/mind2web/.cache/data
+          data_path: .
+          score_file: /root/work/data/scores_all_data.pkl
+          test_split_files:
+            test_domain: /root/work/data/data_std/*.json
+        eval:
+          topk: 10
+        llm_prompt: data/mind2web/prompt/llm_prompt_cot.json
+        model:
+          max_seq_length: 2048
+          mode: multichoice
+          model_name_or_path: google/flan-t5-base
+          name: flan-t5-base
+        name: Mind2Web-std
+        seed: 123
+        train:
+          max_context_len: 512
+          neg_ratio: 0.2
+          num_candidates: 5
+    os-std:
+      module: src.client.TaskClient
+      parameters:
+        concurrency: 24
+        controller_address: http://localhost:5000/api
+        data_config:
+          bk: []
+          files:
+          - index_prefix: std-001-
+            problem_file: data/os_interaction/data/1/*.json
+            script_dir: data/os_interaction/scripts/1/
+          - index_prefix: std-002-
+            problem_file: data/os_interaction/data/2/*.json
+            script_dir: data/os_interaction/scripts/2/
+          - index_prefix: std-003-
+            problem_file: data/os_interaction/data/3/*.json
+            script_dir: data/os_interaction/scripts/3/
+          - index_prefix: std-004-
+            problem_file: data/os_interaction/data/4/*.json
+            script_dir: data/os_interaction/scripts/4/
+          - index_prefix: std-005-
+            problem_file: data/os_interaction/data/5/*.json
+            script_dir: data/os_interaction/scripts/5/
+          - index_prefix: std-006-
+            problem_file: data/os_interaction/data/6/*.json
+            script_dir: data/os_interaction/scripts/6/
+          - index_prefix: std-007-
+            problem_file: data/os_interaction/data/7/*.json
+            script_dir: data/os_interaction/scripts/7/
+          ignore: []
+        docker_config:
+          directory: data/os_interaction/res/dockerfiles
+          localhost: local-os
+        name: os-std
+        round_limit: 8
+        scripts:
+          directory: data/os_interaction/res/scripts
+    webshop-std:
+      module: src.client.TaskClient
+      parameters:
+        concurrency: 1
+        controller_address: http://localhost:5000/api
+        end: 200
+        name: webshop-std
+        start: 0
+output: outputs/2025-04-23-19-33-28

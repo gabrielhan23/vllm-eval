@@ -1,0 +1,29 @@
+import: definition.yaml
+
+concurrency:
+  task:
+    dbbench-std: 5
+    os-std: 5
+    m2w-std: 5
+    webshop-std: 5
+  agent:
+    # Qwen/Qwen2.5-7B-Instruct: 5
+    # deepseek-ai/DeepSeek-R1-Distill-Qwen-7B: 5
+    # deepseek-ai/DeepSeek-R1-Distill-Qwen-14B: 5
+    # deepseek-ai/DeepSeek-R1-Distill-Qwen-32B: 5
+    Qwen/QwQ-32B: 5
+
+assignments: # List[Assignment] | Assignment
+  - agent: # "task": List[str] | str ,  "agent": List[str] | str
+      # - Qwen/Qwen2.5-7B-Instruct
+      # - deepseek-ai/DeepSeek-R1-Distill-Qwen-7B
+      # - deepseek-ai/DeepSeek-R1-Distill-Qwen-14B
+      - Qwen/QwQ-32B
+        # - deepseek-ai/DeepSeek-R1-Distill-Qwen-32B
+    task:
+      - webshop-std
+      # - os-std
+      - dbbench-std
+      - m2w-std
+
+output: "outputs/{TIMESTAMP}"

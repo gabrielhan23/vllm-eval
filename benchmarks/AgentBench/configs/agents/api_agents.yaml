@@ -1,0 +1,62 @@
+gpt-3.5-turbo-0613:
+    import: "./openai-chat.yaml"
+    parameters:
+        name: "gpt-3.5-turbo-0613"
+        body:
+            model: "gpt-3.5-turbo-0613"
+            max_tokens: 512
+
+text-davinci-003:
+    import: "./openai-text.yaml"
+    parameters:
+        name: "text-davinci-003"
+        body:
+            model: "text-davinci-003"
+            max_tokens: 512
+
+text-davinci-002:
+    import: "./openai-text.yaml"
+    parameters:
+        name: "text-davinci-002"
+        body:
+            model: "text-davinci-002"
+            max_tokens: 512
+
+Qwen/Qwen2.5-7B-Instruct:
+    import: "./vllm.yaml"
+    parameters:
+        name: "Qwen/Qwen2.5-7B-Instruct"
+        body:
+            name: "Qwen/Qwen2.5-7B-Instruct"
+
+deepseek-ai/DeepSeek-R1-Distill-Qwen-7B:
+    import: "./vllm.yaml"
+    parameters:
+        name: "deepseek-ai/DeepSeek-R1-Distill-Qwen-7B"
+        body:
+            name: "deepseek-ai/DeepSeek-R1-Distill-Qwen-7B"
+            max_tokens: 1024
+
+deepseek-ai/DeepSeek-R1-Distill-Qwen-14B:
+    import: "./vllm.yaml"
+    parameters:
+        name: "deepseek-ai/DeepSeek-R1-Distill-Qwen-14B"
+        body:
+            name: "deepseek-ai/DeepSeek-R1-Distill-Qwen-14B"
+            max_tokens: 512
+
+Qwen/QwQ-32B:
+    import: "./vllm.yaml"
+    parameters:
+        name: "Qwen/QwQ-32B"
+        body:
+            name: "Qwen/QwQ-32B"
+            max_tokens: 1024
+
+deepseek-ai/DeepSeek-R1-Distill-Qwen-32B:
+    import: "./vllm.yaml"
+    parameters:
+        name: "deepseek-ai/DeepSeek-R1-Distill-Qwen-32B"
+        body:
+            name: "deepseek-ai/DeepSeek-R1-Distill-Qwen-32B"
+            max_tokens: 1024

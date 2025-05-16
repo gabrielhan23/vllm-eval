@@ -1,0 +1,22 @@
+{
+    "total": 200,
+    "validation": {
+        "running": 0.0,
+        "completed": 0.32,
+        "agent context limit": 0.0,
+        "agent validation failed": 0.66,
+        "agent invalid action": 0.0,
+        "task limit reached": 0.02,
+        "unknown": 0.0,
+        "task error": 0.0,
+        "average_history_length": 15.79,
+        "max_history_length": 30,
+        "min_history_length": 12
+    },
+    "custom": {
+        "reward": 0.17637500000000003
+    },
+    "start_time": "2025-04-27 19:41:10",
+    "end_time": "2025-04-27 20:04:30",
+    "duration_seconds": 1400.03
+}

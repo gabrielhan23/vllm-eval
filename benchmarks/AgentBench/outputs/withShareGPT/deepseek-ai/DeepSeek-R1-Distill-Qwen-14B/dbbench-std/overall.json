@@ -1,0 +1,33 @@
+{
+    "total": 300,
+    "validation": {
+        "running": 0.0,
+        "completed": 0.13333333333333333,
+        "agent context limit": 0.0,
+        "agent validation failed": 0.8633333333333333,
+        "agent invalid action": 0.0,
+        "task limit reached": 0.0033333333333333335,
+        "unknown": 0.0,
+        "task error": 0.0,
+        "average_history_length": 7.946666666666666,
+        "max_history_length": 34,
+        "min_history_length": 4
+    },
+    "custom": {
+        "other_accuracy": 0.11764705882352941,
+        "counting_accuracy": 0.0,
+        "comparison_accuracy": 0.0,
+        "ranking_accuracy": 0.11764705882352941,
+        "aggregation-SUM_accuracy": 0.0,
+        "aggregation-MIN_accuracy": 0.0,
+        "aggregation-MAX_accuracy": 0.0,
+        "aggregation-AVG_accuracy": 0.0,
+        "SELECT_accuracy": 0.04,
+        "INSERT_accuracy": 0.07,
+        "UPDATE_accuracy": 0.31,
+        "overall_cat_accuracy": 0.14
+    },
+    "start_time": "2025-04-20 19:03:56",
+    "end_time": "2025-04-20 19:40:50",
+    "duration_seconds": 2214.53
+}

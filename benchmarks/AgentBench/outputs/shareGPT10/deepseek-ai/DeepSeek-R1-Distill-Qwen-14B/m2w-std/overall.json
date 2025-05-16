@@ -1,0 +1,24 @@
+{
+    "total": 100,
+    "validation": {
+        "running": 0.0,
+        "completed": 0.52,
+        "agent context limit": 0.0,
+        "agent validation failed": 0.0,
+        "agent invalid action": 0.13,
+        "task limit reached": 0.0,
+        "unknown": 0.35,
+        "task error": 0.0,
+        "average_history_length": 5.2,
+        "max_history_length": 8,
+        "min_history_length": 0
+    },
+    "custom": {
+        "element_acc": 23.0,
+        "action_f1": 0.0,
+        "step_sr": 0.0
+    },
+    "start_time": "2025-04-21 19:25:03",
+    "end_time": "2025-04-21 19:31:29",
+    "duration_seconds": 385.49
+}
